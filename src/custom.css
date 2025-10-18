@@ -5,16 +5,21 @@
    SCROLL ANIMATIONS
    =================================== */
 
-/* Base animation classes */
+/* Base animation classes - Optimized for performance */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(30px) translateZ(0);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .animate-on-scroll.animate-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
+  will-change: auto; /* Remove will-change after animation */
 }
 
 /* Staggered animation delays */
@@ -27,76 +32,100 @@
 .animate-delay-7 { animation-delay: 0.7s; }
 .animate-delay-8 { animation-delay: 0.8s; }
 
-/* Gallery specific animations */
+/* Gallery specific animations - GPU accelerated */
 .gallery-item {
   opacity: 0;
-  transform: translateY(40px) scale(0.95);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(40px) scale(0.95) translateZ(0);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .gallery-item.animate-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0) scale(1) translateZ(0);
+  will-change: auto;
 }
 
-/* Card animations */
+/* Card animations - Optimized */
 .card-animate {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(30px) translateZ(0);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .card-animate.animate-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
+  will-change: auto;
 }
 
-/* Image reveal animation */
+/* Image reveal animation - GPU accelerated */
 .image-reveal {
   opacity: 0;
-  transform: scale(0.9);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.9) translateZ(0);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .image-reveal.animate-visible {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) translateZ(0);
+  will-change: auto;
 }
 
-/* Text fade up animation */
+/* Text fade up animation - Optimized */
 .text-fade-up {
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(20px) translateZ(0);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .text-fade-up.animate-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
+  will-change: auto;
 }
 
-/* Slide in from left */
+/* Slide in from left - GPU accelerated */
 .slide-in-left {
   opacity: 0;
-  transform: translateX(-50px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50px) translateZ(0);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .slide-in-left.animate-visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) translateZ(0);
+  will-change: auto;
 }
 
-/* Slide in from right */
+/* Slide in from right - GPU accelerated */
 .slide-in-right {
   opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(50px) translateZ(0);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .slide-in-right.animate-visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) translateZ(0);
+  will-change: auto;
 }
 
 /* Scale in animation */

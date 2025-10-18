@@ -5,27 +5,40 @@ import Footer from './components/Footer';
 import FixedPlayer from './components/FixedPlayer';
 import Home from './pages/Home';
 import MobileHome from './pages/MobileHome';
+import { useScrollPerformance } from './hooks/useScrollPerformance';
 import './App.css';
 
 function App() {
+  // Enable scroll performance optimizations
+  useScrollPerformance();
+
   useEffect(() => {
+    // Optimize page rendering
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        loadScripts();
+      });
+    } else {
+      setTimeout(loadScripts, 1);
+    }
+
     // Load jQuery and plugins
-    const loadScripts = async () => {
+    function loadScripts() {
       // Create script elements for jQuery plugins
       const coreScript = document.createElement('script');
       coreScript.src = '/js/core.min.js';
-      coreScript.async = false;
+      coreScript.async = true; // Changed to async for better performance
+      coreScript.defer = true;
       document.body.appendChild(coreScript);
 
       coreScript.onload = () => {
         const script = document.createElement('script');
         script.src = '/js/script.js';
-        script.async = false;
+        script.async = true;
+        script.defer = true;
         document.body.appendChild(script);
       };
-    };
-
-    loadScripts();
+    }
 
     // Cleanup
     return () => {

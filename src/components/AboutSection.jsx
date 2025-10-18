@@ -48,6 +48,8 @@ function AboutSection() {
               src="/images/amelissa/Photo Session (1).jpg" 
               alt="Amelissa" 
               loading="lazy"
+              decoding="async"
+              fetchpriority="low"
             />
           </div>
           
@@ -56,6 +58,8 @@ function AboutSection() {
               src="/images/amelissa/Photo Session (2).jpg" 
               alt="Amelissa" 
               loading="lazy"
+              decoding="async"
+              fetchpriority="low"
             />
           </div>
           
@@ -64,6 +68,8 @@ function AboutSection() {
               src="/images/amelissa/Photo Session (3).jpg" 
               alt="Amelissa" 
               loading="lazy"
+              decoding="async"
+              fetchpriority="low"
             />
           </div>
         </div>

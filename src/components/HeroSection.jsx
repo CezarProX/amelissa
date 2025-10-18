@@ -14,6 +14,9 @@ function HeroSection() {
           src="/images/Homepage copy.jpg" 
           alt="Amelissa" 
           className="hero-mobile-img"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
         />
         
         {/* Tagline Overlay - Positioned over image on mobile */}

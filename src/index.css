@@ -10,4 +10,59 @@
 @import './styles/mobile.css';
 
 /* Font imports from original HTML */
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface%7CRoboto:100,400,400i,700,900');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface%7CRoboto:100,400,400i,700,900&display=swap');
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* Smooth scrolling with reduced motion support */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Force GPU acceleration for common elements */
+.page,
+section,
+article {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize images globally */
+img {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
+/* Optimize fonts */
+body {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize scrolling performance */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Reduce layout shifts */
+.container,
+.row {
+  contain: layout style;
+}

@@ -56,6 +56,8 @@ function MusicReleasesSection() {
                     alt={release.title}
                     className="release-album-art"
                     loading="lazy"
+                    decoding="async"
+                    fetchpriority="low"
                   />
                   {release.badge && (
                     <span className="release-badge">{release.badge}</span>
