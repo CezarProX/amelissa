@@ -14,8 +14,12 @@ function Header() {
     // Handle scroll
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const headerHeight = 150; // Approximate height of the header
       
+      // Get the actual height of the original header
+      const originalHeader = document.querySelector('.page-header');
+      const headerHeight = originalHeader ? originalHeader.offsetHeight : 300;
+      
+      // Show floating header only after we've scrolled past the entire original header
       if (scrollPosition > headerHeight) {
         setIsScrolled(true);
       } else {
