@@ -44,7 +44,7 @@ function MusicReleasesSection() {
         <div className="row g-4 justify-content-center">
           {releases.map((release, index) => (
             <div 
-              className={`col-lg-4 col-md-6 animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} 
+              className={`col-lg-4 col-md-6 animate-on-scroll card-animate ${isVisible ? 'animate-visible' : ''}`} 
               key={index}
               style={{ animationDelay: `${0.4 + index * 0.15}s` }}
             >
@@ -101,7 +101,7 @@ function MusicReleasesSection() {
         </div>
 
         {/* Streaming Platforms */}
-        <div className="streaming-platforms">
+        <div className={`streaming-platforms animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.8s' }}>
           <p className="streaming-text">Also available on</p>
           <div className="platform-icons">
             <a href="#spotify" className="platform-link" aria-label="Spotify">

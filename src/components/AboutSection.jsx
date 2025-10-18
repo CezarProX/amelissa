@@ -43,7 +43,7 @@ function AboutSection() {
 
         {/* Gallery - 3 Column Grid */}
         <div className={`about-gallery animate-on-scroll ${isVisible ? 'animate-visible' : ''}`}>
-          <div className="gallery-item" style={{ animationDelay: '0.5s' }}>
+          <div className={`gallery-item image-reveal ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.5s' }}>
             <img 
               src="/images/amelissa/Photo Session (1).jpg" 
               alt="Amelissa" 
@@ -51,7 +51,7 @@ function AboutSection() {
             />
           </div>
           
-          <div className="gallery-item" style={{ animationDelay: '0.6s' }}>
+          <div className={`gallery-item image-reveal ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.6s' }}>
             <img 
               src="/images/amelissa/Photo Session (2).jpg" 
               alt="Amelissa" 
@@ -59,7 +59,7 @@ function AboutSection() {
             />
           </div>
           
-          <div className="gallery-item" style={{ animationDelay: '0.7s' }}>
+          <div className={`gallery-item image-reveal ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.7s' }}>
             <img 
               src="/images/amelissa/Photo Session (3).jpg" 
               alt="Amelissa" 

@@ -1,6 +1,167 @@
 
 /* Custom inline styles from original index.html */
 
+/* ===================================
+   SCROLL ANIMATIONS
+   =================================== */
+
+/* Base animation classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+.animate-delay-6 { animation-delay: 0.6s; }
+.animate-delay-7 { animation-delay: 0.7s; }
+.animate-delay-8 { animation-delay: 0.8s; }
+
+/* Gallery specific animations */
+.gallery-item {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item.animate-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Card animations */
+.card-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-animate.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image reveal animation */
+.image-reveal {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-reveal.animate-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Text fade up animation */
+.text-fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-fade-up.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide in from left */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-in-left.animate-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide in from right */
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-in-right.animate-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale in animation */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-in.animate-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .animate-on-scroll {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .gallery-item {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-animate {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .image-reveal {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Reduce transform distances on mobile for better performance */
+  .animate-on-scroll {
+    transform: translateY(20px);
+  }
+  
+  .gallery-item {
+    transform: translateY(25px) scale(0.95);
+  }
+  
+  .slide-in-left {
+    transform: translateX(-30px);
+  }
+  
+  .slide-in-right {
+    transform: translateX(30px);
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll,
+  .gallery-item,
+  .card-animate,
+  .image-reveal,
+  .text-fade-up,
+  .slide-in-left,
+  .slide-in-right,
+  .scale-in {
+    transition: opacity 0.3s ease;
+    transform: none !important;
+  }
+}
+
 .ie-panel {
   display: none;
   background: #212121;
@@ -45,6 +206,23 @@ html.lt-ie-10 .ie-panel {
   pointer-events: none;
 }
 
+/* Disable RD Navbar Sticky Behavior - Complete Removal */
+.rd-navbar.rd-navbar--is-stuck,
+.rd-navbar-main-outer.rd-navbar--is-stuck,
+.rd-navbar-main-outer.rd-navbar--is-clone,
+.rd-navbar.rd-navbar-original.rd-navbar--is-stuck,
+nav.rd-navbar.rd-navbar--is-stuck {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
 /* Floating Navbar Base Styles */
 .floating-navbar {
   position: fixed;
@@ -60,18 +238,6 @@ html.lt-ie-10 .ie-panel {
   justify-content: center;
   align-items: flex-start;
   padding: 0 12px;               /* safe gutters on very small widths */
-  animation: navSlideDown 0.8s ease-out 0.3s forwards;
-}
-
-@keyframes navSlideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .floating-navbar-visible {
@@ -232,12 +398,6 @@ html.lt-ie-10 .ie-panel {
 }
 
 @media (max-width: 991px) {
-  .floating-navbar {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: all;
-  }
-  
   .floating-navbar-container {
     width: 100%;
     margin: 12px 15px;

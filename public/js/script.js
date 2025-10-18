@@ -1030,35 +1030,36 @@
 				else if (navbar.attr('data' + alias + 'stick-up')) link.stickUp = navbar.attr('data' + alias + 'stick-up') === 'true';
 			}
 
-			plugins.rdNavbar.RDNavbar({
-				anchorNav:    !isNoviBuilder,
-				stickUpClone: (plugins.rdNavbar.attr("data-stick-up-clone") && !isNoviBuilder) ? plugins.rdNavbar.attr("data-stick-up-clone") === 'true' : false,
-				responsive:   responsive,
-				callbacks:    {
-					onStuck:        function () {
-						let navbarSearch = this.$element.find('.rd-search input');
+		plugins.rdNavbar.RDNavbar({
+			anchorNav:    !isNoviBuilder,
+			stickUp:      false, // Disable sticky behavior
+			stickUpClone: false, // Disable sticky clone
+			responsive:   responsive,
+			callbacks:    {
+				onStuck:        function () {
+					let navbarSearch = this.$element.find('.rd-search input');
 
-						if (navbarSearch) {
-							navbarSearch.val('').trigger('propertychange');
-						}
-					},
-					onDropdownOver: function () {
-						return !isNoviBuilder;
-					},
-					onUnstuck:      function () {
-						if (this.$clone === null)
-							return;
-
-						let navbarSearch = this.$clone.find('.rd-search input');
-
-						if (navbarSearch) {
-							navbarSearch.val('').trigger('propertychange');
-							navbarSearch.trigger('blur');
-						}
-
+					if (navbarSearch) {
+						navbarSearch.val('').trigger('propertychange');
 					}
+				},
+				onDropdownOver: function () {
+					return !isNoviBuilder;
+				},
+				onUnstuck:      function () {
+					if (this.$clone === null)
+						return;
+
+					let navbarSearch = this.$clone.find('.rd-search input');
+
+					if (navbarSearch) {
+						navbarSearch.val('').trigger('propertychange');
+						navbarSearch.trigger('blur');
+					}
+
 				}
-			});
+			}
+		});
 		}
 
 		// RD Search

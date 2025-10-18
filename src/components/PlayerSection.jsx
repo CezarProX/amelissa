@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import YouTube from 'react-youtube';
 import { Play, Pause, SkipBack, SkipForward } from 'lucide-react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import '../styles/player.css';
 
 function PlayerSection() {
+  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
   const [player, setPlayer] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -75,9 +77,9 @@ function PlayerSection() {
   };
 
   return (
-    <section className="section section-lg bg-secondary-2">
+    <section className="section section-lg bg-secondary-2" ref={ref}>
       <div className="container">
-        <div className="custom-player">
+        <div className={`custom-player animate-on-scroll ${isVisible ? 'animate-visible' : ''}`}>
           {/* Hidden YouTube Player */}
           <div style={{ display: 'none' }}>
             <YouTube

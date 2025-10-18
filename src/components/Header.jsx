@@ -17,14 +17,22 @@ function Header() {
       
       // Get the actual height of the original header
       const originalHeader = document.querySelector('.page-header');
-      const headerHeight = originalHeader ? originalHeader.offsetHeight : 300;
+      const headerHeight = originalHeader ? originalHeader.offsetHeight : 200;
       
-      // Show floating header only after we've scrolled past the entire original header
+      // Show floating header after scrolling past the original header (same as RD Navbar stuck behavior)
       if (scrollPosition > headerHeight) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
+      
+      // Remove any RD Navbar stuck/clone elements that might appear
+      const stuckNavbars = document.querySelectorAll('.rd-navbar--is-stuck, .rd-navbar--is-clone');
+      stuckNavbars.forEach(navbar => {
+        if (navbar && navbar.parentNode) {
+          navbar.remove();
+        }
+      });
     };
 
     // Initial checks

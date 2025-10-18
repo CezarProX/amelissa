@@ -1,6 +1,10 @@
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+
 function HeroSection() {
+  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
+
   return (
-    <div className="hero-section-modern hero-animate-enter">
+    <div className="hero-section-modern hero-animate-enter" ref={ref}>
       {/* Background Image Container */}
       <div className="hero-background-image hero-bg-animate"></div>
       
@@ -25,7 +29,7 @@ function HeroSection() {
       <div className="container">
         <div className="row row-40 align-items-start">
           {/* Left Column - Biography */}
-          <div className="col-sm-6 col-xl-3 hero-card-animate" style={{ animationDelay: '0.2s' }}>
+          <div className={`col-sm-6 col-xl-3 hero-card-animate animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
             {/* Biography Card */}
             <div className="modern-card modern-card-featured bio-card">
               <h3 className="bio-card-title">THE STORY SO FAR</h3>
@@ -73,14 +77,14 @@ function HeroSection() {
           </div>
 
           {/* Right Column - Media */}
-          <div className="col-sm-6 col-xl-3 offset-xl-6 hero-card-animate" style={{ animationDelay: '0.4s' }}>
+          <div className={`col-sm-6 col-xl-3 offset-xl-6 hero-card-animate animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.4s' }}>
             {/* Latest Release Headline */}
             <div className="media-section-headline">
               <h3 className="media-headline-text">LATEST RELEASE</h3>
             </div>
 
             {/* Release Card 1 */}
-            <div className="modern-card modern-card-media hero-media-card-animate" style={{ animationDelay: '0.6s' }}>
+            <div className={`modern-card modern-card-media hero-media-card-animate animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.6s' }}>
               <a 
                 href="https://youtu.be/r96b5mtkHrE?si=UgD6DD7HNm-XHHFe" 
                 target="_blank" 
@@ -119,7 +123,7 @@ function HeroSection() {
             </div>
 
             {/* Release Card 2 */}
-            <div className="modern-card modern-card-media hero-media-card-animate" style={{ animationDelay: '0.8s' }}>
+            <div className={`modern-card modern-card-media hero-media-card-animate animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.8s' }}>
               <a 
                 href="https://youtu.be/73dvWTHMQ6Y?si=67xv9aW-qaqZ5Rv1" 
                 target="_blank" 
