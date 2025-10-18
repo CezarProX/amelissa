@@ -506,13 +506,13 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: repeat(2, 1fr);
   gap: 10px;
-  height: 320px;
-  margin: 40px 0 32px 0;
+  height: 400px;
+  margin: 40px 0 60px 0;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  z-index: 5;
+  z-index: 1;
 }
 
 .mobile-about-gallery.visible {
@@ -552,6 +552,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   display: block;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   animation: imageReveal 0.8s ease-out forwards;
@@ -586,12 +587,26 @@
 /* Extra small phones */
 @media (max-width: 374px) {
   .mobile-about-gallery {
-    height: 280px;
+    height: 350px;
     gap: 8px;
   }
   
   .mobile-gallery-wrapper {
     border-radius: 10px;
+  }
+}
+
+/* Larger phones - better gallery height */
+@media (min-width: 375px) and (max-width: 430px) {
+  .mobile-about-gallery {
+    height: 420px;
+  }
+}
+
+/* Very large phones */
+@media (min-width: 431px) and (max-width: 767px) {
+  .mobile-about-gallery {
+    height: 480px;
   }
 }
 
@@ -639,12 +654,82 @@
   letter-spacing: 0.5px;
 }
 
+/* Mobile Media Kit Button */
+.mobile-media-kit {
+  margin: 32px 0 0 0;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 10;
+}
+
+.mobile-media-kit.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-media-kit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #b8882a 0%, #d4a957 100%);
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(184, 138, 40, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 280px;
+}
+
+.mobile-media-kit-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.mobile-media-kit-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 15px rgba(184, 138, 40, 0.3);
+}
+
+.mobile-media-kit-button:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.mobile-media-kit-button svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.mobile-media-kit-button:active svg {
+  transform: translateY(2px);
+}
+
 /* Social Section */
 .mobile-social-section {
   text-align: center;
   position: relative;
-  z-index: 1;
-  margin-top: 60px;
+  z-index: 10;
+  margin-top: 0;
   padding-top: 20px;
   background-color: #ffffff;
   clear: both;

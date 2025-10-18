@@ -70,7 +70,9 @@ function MusicReleasesSection() {
                       className="play-button-large"
                       aria-label={`Play ${release.title}`}
                     >
-                      <i className="fab fa-youtube"></i>
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
                     </a>
                   </div>
                 </div>
@@ -78,7 +80,11 @@ function MusicReleasesSection() {
                 {/* Release Info */}
                 <div className="release-info">
                   <div className="release-type-tag">
-                    <i className="fas fa-music"></i>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}>
+                      <path d="M9 18V5l12-2v13"></path>
+                      <circle cx="6" cy="18" r="3"></circle>
+                      <circle cx="18" cy="16" r="3"></circle>
+                    </svg>
                     {release.type}
                   </div>
                   <h3 className="release-title">{release.title}</h3>
@@ -92,7 +98,6 @@ function MusicReleasesSection() {
                       rel="noopener noreferrer"
                       className="btn-listen"
                     >
-                      <i className="fab fa-youtube"></i>
                       Watch on YouTube
                     </a>
                   </div>
@@ -100,25 +105,6 @@ function MusicReleasesSection() {
               </article>
             </div>
           ))}
-        </div>
-
-        {/* Streaming Platforms */}
-        <div className={`streaming-platforms animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.8s' }}>
-          <p className="streaming-text">Also available on</p>
-          <div className="platform-icons">
-            <a href="#spotify" className="platform-link" aria-label="Spotify">
-              <i className="fab fa-spotify"></i>
-            </a>
-            <a href="#apple-music" className="platform-link" aria-label="Apple Music">
-              <i className="fab fa-apple"></i>
-            </a>
-            <a href="#soundcloud" className="platform-link" aria-label="SoundCloud">
-              <i className="fab fa-soundcloud"></i>
-            </a>
-            <a href="#deezer" className="platform-link" aria-label="Deezer">
-              <i className="fab fa-deezer"></i>
-            </a>
-          </div>
         </div>
       </div>
 

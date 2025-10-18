@@ -64,7 +64,6 @@ function NewsSection() {
                     <span className="news-day">{item.day}</span>
                   </div>
                   <span className="news-category">
-                    <i className={`fas ${item.icon}`}></i>
                     {item.category}
                   </span>
                 </div>
@@ -79,7 +78,9 @@ function NewsSection() {
                 <div className="news-card-footer">
                   <a href={item.link} className="news-card-link">
                     {item.linkText}
-                    <i className="fas fa-arrow-right"></i>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M1 8h14M8 1l7 7-7 7"/>
+                    </svg>
                   </a>
                 </div>
               </article>
@@ -91,7 +92,9 @@ function NewsSection() {
         <div className="news-footer">
           <a href="#all-news" className="btn-view-all">
             View All News
-            <i className="fas fa-chevron-right"></i>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 12l4-4-4-4"/>
+            </svg>
           </a>
         </div>
       </div>

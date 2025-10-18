@@ -1,3 +1,6 @@
+/* Import Montserrat Font */
+@import url('/css/montserrat.css');
+
 /* Import original stylesheets */
 @import url('/css/bootstrap.css');
 @import url('/css/fonts.css');
@@ -9,8 +12,8 @@
 /* Import mobile styles */
 @import './styles/mobile.css';
 
-/* Font imports from original HTML */
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface%7CRoboto:100,400,400i,700,900&display=swap');
+/* Import Montserrat Override - MUST BE LAST to override everything */
+@import './styles/montserrat-override.css';
 
 /* ========================================
    PERFORMANCE OPTIMIZATIONS
@@ -49,8 +52,14 @@ img {
   contain-intrinsic-size: 1px 500px;
 }
 
+/* Apply Montserrat globally */
+* {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
 /* Optimize fonts */
 body {
+  font-family: 'Montserrat', sans-serif;
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

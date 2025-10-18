@@ -34,3 +34,6 @@ deploy.js
 # OS files
 .DS_Store
 Thumbs.db
+
+# Media Kit (large files - download separately)
+public/media-kit/*.zip

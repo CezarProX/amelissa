@@ -144,6 +144,79 @@
 }
 
 /* ========================================
+   MEDIA KIT BUTTON
+   ======================================== */
+
+.about-media-kit {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.animate-visible .about-media-kit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.media-kit-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #b8882a 0%, #d4a957 100%);
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(184, 138, 40, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.media-kit-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.media-kit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(184, 138, 40, 0.4);
+}
+
+.media-kit-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.media-kit-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(184, 138, 40, 0.3);
+}
+
+.media-kit-button svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.media-kit-button:hover svg {
+  transform: translateY(2px);
+}
+
+/* ========================================
    GALLERY GRID
    ======================================== */
 

@@ -1,0 +1,153 @@
+/* ========================================
+   MONTSERRAT FONT OVERRIDE
+   Force Montserrat on entire site
+   ======================================== */
+
+/* Global override - highest priority */
+*,
+*::before,
+*::after,
+html,
+body,
+div,
+span,
+h1, h2, h3, h4, h5, h6,
+p,
+a,
+button,
+input,
+textarea,
+select,
+label,
+li,
+ul,
+ol,
+nav,
+header,
+footer,
+section,
+article,
+aside {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Specific overrides for common classes */
+.page,
+.page-header,
+.section,
+.container,
+.row,
+.col,
+.btn,
+.button,
+.link,
+.nav,
+.navbar,
+.footer,
+.header {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Override any Roboto or other fonts */
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Titles and headings */
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700;
+}
+
+/* Paragraphs and text */
+p, .p,
+span, .span,
+div, .div,
+a, .a {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Buttons */
+button,
+.button,
+.btn,
+input[type="button"],
+input[type="submit"],
+.media-kit-button,
+.mobile-media-kit-button,
+.mobile-cta-primary {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Navigation */
+.page-header,
+.rd-navbar,
+.nav,
+.menu,
+.navigation {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Footer */
+.footer,
+.footer-classic,
+.modern-footer,
+.mobile-footer {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* About section */
+.about-section,
+.about-section-clean,
+.about-title,
+.about-description,
+.keyword-label,
+.mobile-about,
+.mobile-section-title,
+.mobile-about-text {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Hero section */
+.section-hero,
+.mobile-hero,
+.hero-title,
+.hero-subtitle {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Music section */
+.music-section,
+.mobile-music,
+.music-title,
+.music-artist {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Player */
+.player,
+.jp-audio,
+.fixed-player {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* News section */
+.news-section,
+.modern-news-section {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Forms */
+input,
+textarea,
+select,
+.form-control,
+.form-input {
+  font-family: 'Montserrat', sans-serif !important;
+}
+

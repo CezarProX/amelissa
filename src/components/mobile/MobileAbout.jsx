@@ -3,6 +3,35 @@ import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 function MobileAbout() {
   const [ref, isVisible] = useIntersectionObserver();
 
+  const handleDownload = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    try {
+      // Check if file exists first
+      const response = await fetch('/media-kit/amelissa-media-kit.zip', { method: 'HEAD' });
+      
+      if (response.ok) {
+        // File exists, download it
+        const link = document.createElement('a');
+        link.href = '/media-kit/amelissa-media-kit.zip';
+        link.download = 'amelissa-media-kit.zip';
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        setTimeout(() => {
+          document.body.removeChild(link);
+        }, 100);
+      } else {
+        // File doesn't exist
+        alert('Media Kit will be available soon. Please check back later!');
+      }
+    } catch (error) {
+      console.error('Download error:', error);
+      alert('Media Kit will be available soon. Please check back later!');
+    }
+  };
+
   return (
     <section className="mobile-about" ref={ref}>
       <div className={`mobile-section-container mobile-section-fade ${isVisible ? 'mobile-section-visible' : ''}`}>
@@ -36,6 +65,23 @@ function MobileAbout() {
             <span className="mobile-keyword-dot"></span>
             <span className="mobile-keyword-text">Emotion</span>
           </div>
+        </div>
+
+        {/* Media Kit Button */}
+        <div className={`mobile-media-kit ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.35s' }}>
+          <a 
+            href="/media-kit/amelissa-media-kit.zip" 
+            onClick={handleDownload}
+            className="mobile-media-kit-button"
+            aria-label="Download Media Kit"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Media Kit</span>
+          </a>
         </div>
 
         {/* Gallery Grid */}
@@ -74,59 +120,6 @@ function MobileAbout() {
           </div>
         </div>
         
-        {/* Social Links - BELOW GALLERY */}
-        <div className="mobile-social-section">
-          <p className="mobile-social-title">Follow the Journey</p>
-          <div className="mobile-social-grid">
-            <a 
-              href="https://www.instagram.com/amelissa.official/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={`mobile-social-card mobile-social-instagram ${isVisible ? 'visible' : ''}`}
-              style={{ transitionDelay: '0.5s' }}
-              aria-label="Instagram"
-            >
-              <div className="mobile-social-card-inner">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-                <span className="mobile-social-card-label">Instagram</span>
-              </div>
-            </a>
-            <a 
-              href="https://www.tiktok.com/@amelissaofficial" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={`mobile-social-card mobile-social-tiktok ${isVisible ? 'visible' : ''}`}
-              style={{ transitionDelay: '0.6s' }}
-              aria-label="TikTok"
-            >
-              <div className="mobile-social-card-inner">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-                </svg>
-                <span className="mobile-social-card-label">TikTok</span>
-              </div>
-            </a>
-            <a 
-              href="https://www.facebook.com/AMELISSA.OFFICIAL" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={`mobile-social-card mobile-social-facebook ${isVisible ? 'visible' : ''}`}
-              style={{ transitionDelay: '0.7s' }}
-              aria-label="Facebook"
-            >
-              <div className="mobile-social-card-inner">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-                <span className="mobile-social-card-label">Facebook</span>
-              </div>
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );
