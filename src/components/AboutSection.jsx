@@ -10,13 +10,13 @@ function AboutSection() {
     
     try {
       // Check if file exists first
-      const response = await fetch('/media-kit/amelissa-media-kit.zip', { method: 'HEAD' });
+      const response = await fetch('/kit media/KIT Media Oct 22 2025 (1).zip', { method: 'HEAD' });
       
       if (response.ok) {
         // File exists, download it
         const link = document.createElement('a');
-        link.href = '/media-kit/amelissa-media-kit.zip';
-        link.download = 'amelissa-media-kit.zip';
+        link.href = '/kit media/KIT Media Oct 22 2025 (1).zip';
+        link.download = 'Amelissa-Media-Kit.zip';
         link.style.display = 'none';
         document.body.appendChild(link);
         link.click();
@@ -72,7 +72,7 @@ function AboutSection() {
           {/* Media Kit Button */}
           <div className="about-media-kit" style={{ animationDelay: '0.45s' }}>
             <a 
-              href="/media-kit/amelissa-media-kit.zip" 
+              href="/kit media/KIT Media Oct 22 2025 (1).zip" 
               onClick={handleDownload}
               className="media-kit-button"
               aria-label="Download Media Kit"
@@ -95,7 +95,7 @@ function AboutSection() {
               alt="Amelissa" 
               loading="lazy"
               decoding="async"
-              fetchpriority="low"
+              fetchPriority="low"
             />
           </div>
           
@@ -105,7 +105,7 @@ function AboutSection() {
               alt="Amelissa" 
               loading="lazy"
               decoding="async"
-              fetchpriority="low"
+              fetchPriority="low"
             />
           </div>
           
@@ -115,7 +115,7 @@ function AboutSection() {
               alt="Amelissa" 
               loading="lazy"
               decoding="async"
-              fetchpriority="low"
+              fetchPriority="low"
             />
           </div>
         </div>

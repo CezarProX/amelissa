@@ -11,51 +11,85 @@ function PlayerSection() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [hasError, setHasError] = useState(false);
 
   const videoId = 'r96b5mtkHrE'; // YouTube video ID
   const songTitle = 'Not Fair';
   const artist = 'AMELISSA';
 
   const onReady = (event) => {
-    setPlayer(event.target);
-    setDuration(event.target.getDuration());
+    try {
+      setPlayer(event.target);
+      setDuration(event.target.getDuration());
+      setHasError(false);
+    } catch (error) {
+      console.warn('YouTube player ready error:', error);
+      setHasError(true);
+    }
   };
 
   const onStateChange = (event) => {
-    setIsPlaying(event.data === 1);
+    try {
+      setIsPlaying(event.data === 1);
+    } catch (error) {
+      console.warn('YouTube player state change error:', error);
+    }
+  };
+
+  const onError = (event) => {
+    console.warn('YouTube player error:', event);
+    setHasError(true);
   };
 
   useEffect(() => {
-    if (player && isPlaying) {
+    if (player && isPlaying && !hasError) {
       const interval = setInterval(() => {
-        const current = player.getCurrentTime();
-        const total = player.getDuration();
-        setCurrentTime(current);
-        setDuration(total);
-        setProgress((current / total) * 100);
+        try {
+          const current = player.getCurrentTime();
+          const total = player.getDuration();
+          if (typeof current === 'number' && typeof total === 'number') {
+            setCurrentTime(current);
+            setDuration(total);
+            setProgress((current / total) * 100);
+          }
+        } catch (error) {
+          console.warn('Error updating player progress:', error);
+        }
       }, 100);
 
       return () => clearInterval(interval);
     }
-  }, [player, isPlaying]);
+  }, [player, isPlaying, hasError]);
 
   const handlePlayPause = () => {
-    if (player) {
-      if (isPlaying) {
-        player.pauseVideo();
-      } else {
-        player.playVideo();
+    if (player && !hasError) {
+      try {
+        if (isPlaying) {
+          player.pauseVideo();
+        } else {
+          player.playVideo();
+        }
+      } catch (error) {
+        console.warn('Error controlling player:', error);
+        setHasError(true);
       }
+    } else if (hasError) {
+      // Open YouTube in new tab as fallback
+      window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
     }
   };
 
   const handleSeek = (e) => {
-    if (player) {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const percentage = x / rect.width;
-      const seekTime = percentage * duration;
-      player.seekTo(seekTime);
+    if (player && !hasError) {
+      try {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percentage = x / rect.width;
+        const seekTime = percentage * duration;
+        player.seekTo(seekTime);
+      } catch (error) {
+        console.warn('Error seeking player:', error);
+      }
     }
   };
 
@@ -73,6 +107,8 @@ function PlayerSection() {
       controls: 0,
       modestbranding: 1,
       rel: 0,
+      origin: window.location.origin,
+      enablejsapi: 1,
     },
   };
 
@@ -81,18 +117,20 @@ function PlayerSection() {
       <div className="container">
         <div className={`custom-player animate-on-scroll ${isVisible ? 'animate-visible' : ''}`}>
           {/* Hidden YouTube Player */}
-          <div style={{ display: 'none' }}>
-            <YouTube
-              videoId={videoId}
-              opts={opts}
-              onReady={onReady}
-              onStateChange={onStateChange}
-            />
-          </div>
+          {!hasError && (
+            <div style={{ display: 'none' }}>
+              <YouTube
+                videoId={videoId}
+                opts={opts}
+                onReady={onReady}
+                onStateChange={onStateChange}
+                onError={onError}
+              />
+            </div>
+          )}
 
           {/* Custom Player UI */}
           <div className="player-header">
-            <span className="now-playing-icon">🎵</span>
             <span className="now-playing-text">NOW PLAYING</span>
           </div>
 

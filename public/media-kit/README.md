@@ -30,3 +30,4 @@ public/
 - Maximum recommended file size: 50MB for optimal download experience
 - The download will start automatically when users click the "Download Media Kit" button
 
+

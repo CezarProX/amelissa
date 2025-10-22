@@ -614,17 +614,18 @@
 .mobile-about-keywords {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 28px;
   margin: 0 0 32px 0;
-  padding: 24px;
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   z-index: 10;
+  align-items: center;
 }
 
 .mobile-about-keywords.visible {
@@ -636,7 +637,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background-color: #ffffff;
+  background-color: transparent;
+  justify-content: center;
 }
 
 .mobile-keyword-dot {
@@ -645,13 +647,15 @@
   background: linear-gradient(135deg, #b8882a 0%, #d4a957 100%);
   border-radius: 50%;
   flex-shrink: 0;
+  display: none;
 }
 
 .mobile-keyword-text {
   font-size: 16px;
   font-weight: 600;
   color: #1a1a1a;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 /* Mobile Media Kit Button */

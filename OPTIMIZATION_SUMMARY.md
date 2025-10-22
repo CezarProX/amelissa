@@ -174,3 +174,4 @@ The optimization work has significantly improved the website's performance:
 The website should now load **3-5 seconds faster** and provide a much better user experience, especially on mobile devices.
 
 **Next step**: Run the image optimization script and implement the remaining recommendations for maximum performance gains.
+

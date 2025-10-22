@@ -37,3 +37,8 @@ Thumbs.db
 
 # Media Kit (large files - download separately)
 public/media-kit/*.zip
+public/kit media/*.zip
+
+# NPM cache
+.npm-cache/
+_update-notifier-last-checked

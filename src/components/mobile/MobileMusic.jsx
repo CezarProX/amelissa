@@ -9,7 +9,7 @@ function MobileMusic() {
       title: "Drink Up",
       artist: "Amelissa",
       type: "Single",
-      image: "/images/Cover Piesa 1.jpg",
+      image: "/images/covers/Cover drink up .png",
       link: "https://www.youtube.com/watch?v=ycycsq8HviM&list=OLAK5uy_lZirJgO5BiCMyaLJ0M9Hl5sgtIjHkUc0c",
       badge: null
     },
@@ -18,16 +18,16 @@ function MobileMusic() {
       title: "Dedim Sana",
       artist: "Amelissa",
       type: "Single",
-      image: "/images/Cover 2nd Song 1080x1080.png",
+      image: "/images/covers/Cover dedim sana.png",
       link: "https://www.youtube.com/watch?v=kahjpxAWJxE&list=OLAK5uy_kPMy_XJCKXU9GU-4F_RkY58-dPiNZr4vs",
       badge: null
     },
     {
       id: 3,
-      title: "Echoes",
+      title: "For the First Time",
       artist: "Amelissa",
       type: "Single",
-      image: "/images/Cover Piesa 1.jpg",
+      image: "/images/covers/Cover for the first time.png",
       link: "https://www.youtube.com/watch?v=KMCn6aV_pvE&list=OLAK5uy_mbfz5sQ2OLSeHfp0XV50VFtqbNWDRgwMI",
       badge: null
     }
