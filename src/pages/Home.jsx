@@ -2,6 +2,7 @@ import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import PlayerSection from '../components/PlayerSection';
 import MusicReleasesSection from '../components/MusicReleasesSection';
+import BackToTop from '../components/BackToTop';
 
 function Home() {
   return (
@@ -17,6 +18,9 @@ function Home() {
 
       {/* Music Releases */}
       <MusicReleasesSection />
+
+      {/* Back to Top Button */}
+      <BackToTop />
     </>
   );
 }

@@ -1,7 +1,4 @@
-import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
-
 function MobileAbout() {
-  const [ref, isVisible] = useIntersectionObserver();
 
   const handleDownload = async (e) => {
     e.preventDefault();
@@ -9,12 +6,12 @@ function MobileAbout() {
     
     try {
       // Check if file exists first
-      const response = await fetch('/kit media/KIT Media Oct 22 2025 (1).zip', { method: 'HEAD' });
+      const response = await fetch('/media-kit/Amelissa Media Kit (4).zip', { method: 'HEAD' });
       
       if (response.ok) {
         // File exists, download it
         const link = document.createElement('a');
-        link.href = '/kit media/KIT Media Oct 22 2025 (1).zip';
+        link.href = '/media-kit/Amelissa Media Kit (4).zip';
         link.download = 'Amelissa-Media-Kit.zip';
         link.style.display = 'none';
         document.body.appendChild(link);
@@ -33,8 +30,8 @@ function MobileAbout() {
   };
 
   return (
-    <section className="mobile-about" ref={ref}>
-      <div className={`mobile-section-container mobile-section-fade ${isVisible ? 'mobile-section-visible' : ''}`}>
+    <section className="mobile-about">
+      <div className="mobile-section-container">
         
         {/* Section Header */}
         <div className="mobile-section-header">
@@ -44,7 +41,7 @@ function MobileAbout() {
 
         {/* Bio Content - BEFORE GALLERY */}
         <div className="mobile-about-content">
-          <div className={`mobile-about-text-wrapper ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
+          <div className="mobile-about-text-wrapper">
             <p className="mobile-about-text mobile-about-text-highlight">
               Amelissa is an independent artist whose sound blends pop sensibility with theatrical depth. Her music reflects lived experiences, emotional truth, and the versatility of a performer shaped by both Romanian roots and international stages.
             </p>
@@ -52,7 +49,7 @@ function MobileAbout() {
         </div>
         
         {/* Keywords Section - BEFORE GALLERY */}
-        <div className={`mobile-about-keywords ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
+        <div className="mobile-about-keywords">
           <div className="mobile-keyword-item">
             <span className="mobile-keyword-text">AUTHENTICITY</span>
           </div>
@@ -65,9 +62,9 @@ function MobileAbout() {
         </div>
 
         {/* Media Kit Button */}
-        <div className={`mobile-media-kit ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.35s' }}>
+        <div className="mobile-media-kit">
           <a 
-            href="/kit media/KIT Media Oct 22 2025 (1).zip" 
+            href="/media-kit/Amelissa Media Kit (4).zip" 
             onClick={handleDownload}
             className="mobile-media-kit-button"
             aria-label="Download Media Kit"
@@ -82,7 +79,7 @@ function MobileAbout() {
         </div>
 
         {/* Gallery Grid */}
-        <div className={`mobile-about-gallery ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
+        <div className="mobile-about-gallery">
           <div className="mobile-gallery-large">
             <div className="mobile-gallery-wrapper">
               <img 

@@ -1,7 +1,4 @@
-import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
-
 function MobileMusic() {
-  const [ref, isVisible] = useIntersectionObserver();
 
   const releases = [
     {
@@ -34,8 +31,8 @@ function MobileMusic() {
   ];
 
   return (
-    <section className="mobile-music" ref={ref}>
-      <div className={`mobile-section-container mobile-section-fade ${isVisible ? 'mobile-section-visible' : ''}`}>
+    <section className="mobile-music">
+      <div className="mobile-section-container">
         {/* Section Header */}
         <div className="mobile-section-header">
           <span className="mobile-section-label">Listen Now</span>
@@ -44,11 +41,10 @@ function MobileMusic() {
         
         {/* Music Cards */}
         <div className="mobile-music-grid">
-          {releases.map((release, index) => (
+          {releases.map((release) => (
             <div 
               key={release.id} 
               className="mobile-music-card"
-              style={{ animationDelay: `${0.5 + index * 0.15}s` }}
             >
               <a 
                 href={release.link} 

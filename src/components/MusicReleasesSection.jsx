@@ -1,8 +1,6 @@
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import '../styles/music-releases.css';
 
 function MusicReleasesSection() {
-  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
   
   const releases = [
     {
@@ -32,22 +30,21 @@ function MusicReleasesSection() {
   ];
 
   return (
-    <section className="music-releases-section" ref={ref}>
+    <section className="music-releases-section">
       <div className="container">
         {/* Section Header */}
-        <div className={`releases-header animate-on-scroll ${isVisible ? 'animate-visible' : ''}`}>
-          <span className="releases-badge" style={{ animationDelay: '0.1s' }}>Listen Now</span>
-          <h2 className="releases-main-title" style={{ animationDelay: '0.2s' }}>Music Releases</h2>
-          <p className="releases-subtitle" style={{ animationDelay: '0.3s' }}>Explore Amelissa's latest singles and collaborations</p>
+        <div className="releases-header">
+          <span className="releases-badge">Listen Now</span>
+          <h2 className="releases-main-title">Music Releases</h2>
+          <p className="releases-subtitle">Explore Amelissa's latest singles and collaborations</p>
         </div>
 
         {/* Releases Grid */}
         <div className="row g-4 justify-content-center">
           {releases.map((release, index) => (
             <div 
-              className={`col-lg-4 col-md-6 animate-on-scroll card-animate ${isVisible ? 'animate-visible' : ''}`} 
+              className="col-lg-4 col-md-6" 
               key={index}
-              style={{ animationDelay: `${0.4 + index * 0.15}s` }}
             >
               <article className="music-release-card">
                 {/* Album Art */}

@@ -1,18 +1,16 @@
 import { Link } from 'react-router-dom';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
-  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
 
   return (
-    <footer className="modern-footer" ref={ref}>
+    <footer className="modern-footer">
       <div className="footer-main">
         <div className="container">
           <div className="row justify-content-center">
             {/* Centered Logo & Description */}
             <div className="col-lg-6 col-md-8 col-12">
-              <div className={`footer-brand text-center animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
+              <div className="footer-brand text-center">
                 <p className="footer-description" style={{ fontSize: '1.1rem', marginBottom: '2rem', lineHeight: '1.6' }}>
                   Discover the art of emotion through Amelissa's music, shaped by truth and soul.
                 </p>

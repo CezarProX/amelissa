@@ -1,8 +1,6 @@
 import '../styles/15_about-section.css';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 function AboutSection() {
-  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
 
   const handleDownload = async (e) => {
     e.preventDefault();
@@ -10,12 +8,12 @@ function AboutSection() {
     
     try {
       // Check if file exists first
-      const response = await fetch('/kit media/KIT Media Oct 22 2025 (1).zip', { method: 'HEAD' });
+      const response = await fetch('/media-kit/Amelissa Media Kit (4).zip', { method: 'HEAD' });
       
       if (response.ok) {
         // File exists, download it
         const link = document.createElement('a');
-        link.href = '/kit media/KIT Media Oct 22 2025 (1).zip';
+        link.href = '/media-kit/Amelissa Media Kit (4).zip';
         link.download = 'Amelissa-Media-Kit.zip';
         link.style.display = 'none';
         document.body.appendChild(link);
@@ -34,27 +32,27 @@ function AboutSection() {
   };
 
   return (
-    <section className="about-section-clean" ref={ref}>
+    <section className="about-section-clean">
       <div className="about-container">
         
         {/* Header - Centered */}
-        <div className={`about-header animate-on-scroll ${isVisible ? 'animate-visible' : ''}`}>
-          <div className="about-badge" style={{ animationDelay: '0.1s' }}>
+        <div className="about-header">
+          <div className="about-badge">
             <span className="badge-text">Independent Artist</span>
           </div>
           
-          <h2 className="about-title" style={{ animationDelay: '0.2s' }}>
+          <h2 className="about-title">
             Get to know <span className="about-title-accent">AMELISSA</span>
           </h2>
           
-          <p className="about-description" style={{ animationDelay: '0.3s' }}>
+          <p className="about-description">
             Amelissa is an independent artist whose sound blends pop sensibility with theatrical depth. 
             Her music reflects lived experiences, emotional truth, and the versatility of a performer 
             shaped by both Romanian roots and international stages.
           </p>
 
           {/* Keywords */}
-          <div className="about-keywords" style={{ animationDelay: '0.4s' }}>
+          <div className="about-keywords">
             <div className="keyword-item">
               <div className="keyword-dot"></div>
               <span className="keyword-label">Authenticity</span>
@@ -70,9 +68,9 @@ function AboutSection() {
           </div>
 
           {/* Media Kit Button */}
-          <div className="about-media-kit" style={{ animationDelay: '0.45s' }}>
+          <div className="about-media-kit">
             <a 
-              href="/kit media/KIT Media Oct 22 2025 (1).zip" 
+              href="/media-kit/Amelissa Media Kit (4).zip" 
               onClick={handleDownload}
               className="media-kit-button"
               aria-label="Download Media Kit"
@@ -88,8 +86,8 @@ function AboutSection() {
         </div>
 
         {/* Gallery - 3 Column Grid */}
-        <div className={`about-gallery animate-on-scroll ${isVisible ? 'animate-visible' : ''}`}>
-          <div className={`gallery-item image-reveal ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.5s' }}>
+        <div className="about-gallery">
+          <div className="gallery-item">
             <img 
               src="/images/amelissa/Photo Session (1).jpg" 
               alt="Amelissa" 
@@ -99,7 +97,7 @@ function AboutSection() {
             />
           </div>
           
-          <div className={`gallery-item image-reveal ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.6s' }}>
+          <div className="gallery-item">
             <img 
               src="/images/amelissa/Photo Session (2).jpg" 
               alt="Amelissa" 
@@ -109,7 +107,7 @@ function AboutSection() {
             />
           </div>
           
-          <div className={`gallery-item image-reveal ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.7s' }}>
+          <div className="gallery-item">
             <img 
               src="/images/amelissa/Photo Session (3).jpg" 
               alt="Amelissa" 

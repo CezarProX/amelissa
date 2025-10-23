@@ -37,7 +37,7 @@ Thumbs.db
 
 # Media Kit (large files - download separately)
 public/media-kit/*.zip
-public/kit media/*.zip
+public/kit media/
 
 # NPM cache
 .npm-cache/

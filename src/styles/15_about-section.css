@@ -7,8 +7,7 @@
   background-color: #ffffff;
   position: relative;
   z-index: 1;
-  opacity: 0;
-  animation: pageEnter 1s ease-out forwards;
+  opacity: 1;
 }
 
 @keyframes pageEnter {
@@ -22,35 +21,13 @@
   }
 }
 
-/* Scroll-triggered animations - Optimized for performance */
+/* No animations */
 .animate-on-scroll {
-  opacity: 0;
-  transform: translateY(40px) translateZ(0);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: opacity, transform;
-  backface-visibility: hidden;
-}
-
-.animate-on-scroll.animate-visible {
   opacity: 1;
-  transform: translateY(0) translateZ(0);
-  will-change: auto;
 }
 
 .animate-on-scroll > * {
-  opacity: 0;
-  transform: translateY(20px) translateZ(0);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: opacity, transform;
-  backface-visibility: hidden;
-}
-
-.animate-on-scroll.animate-visible > * {
   opacity: 1;
-  transform: translateY(0) translateZ(0);
-  will-change: auto;
 }
 
 .about-container {
@@ -151,9 +128,7 @@
   margin-top: 32px;
   display: flex;
   justify-content: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
 }
 
 .animate-on-scroll.animate-visible .about-media-kit {
@@ -233,30 +208,7 @@
 
 /* Enhanced gallery animations - GPU accelerated */
 .about-gallery .gallery-item {
-  opacity: 0;
-  transform: translateY(40px) scale(0.9) translateZ(0);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: opacity, transform;
-  backface-visibility: hidden;
-}
-
-.about-gallery .gallery-item.animate-visible {
   opacity: 1;
-  transform: translateY(0) scale(1) translateZ(0);
-  will-change: auto;
-}
-
-.about-gallery .gallery-item:nth-child(1) {
-  transition-delay: 0.5s;
-}
-
-.about-gallery .gallery-item:nth-child(2) {
-  transition-delay: 0.6s;
-}
-
-.about-gallery .gallery-item:nth-child(3) {
-  transition-delay: 0.7s;
 }
 
 /* Image hover effects - GPU accelerated */
@@ -278,10 +230,18 @@
   contain: layout style paint; /* CSS containment */
 }
 
+/* Picture element should fill container */
+.gallery-item picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   backface-visibility: hidden;

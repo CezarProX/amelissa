@@ -92,3 +92,4 @@ JQMIGRATE: Migrate is installed, version 3.0.0
 - Error boundaries will catch and display any future React errors gracefully
 - YouTube player has fallback behavior if it fails to load
 
+

@@ -10,11 +10,22 @@ import './App.css';
 
 function App() {
   const [preloaderVisible, setPreloaderVisible] = useState(true);
-  const [preloaderFadedIn, setPreloaderFadedIn] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Enable scroll performance optimizations
   useScrollPerformance();
+
+  // Detect mobile on mount
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 992);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     // Suppress YouTube widget API errors
@@ -27,16 +38,20 @@ function App() {
       originalError.apply(console, args);
     };
 
-    // Step 1: Fade in the preloader (100ms delay for smooth start)
-    const fadeInTimer = setTimeout(() => {
-      setPreloaderFadedIn(true);
-    }, 100);
+    // Remove preloader based on actual load state (no artificial delay)
+    const handleLoad = () => {
+      // Small delay for smooth transition only
+      setTimeout(() => {
+        setPreloaderVisible(false);
+        setContentVisible(true);
+      }, 300);
+    };
 
-    // Step 2: After showing preloader for 1200ms, start fading it out and content in
-    const loadTimer = setTimeout(() => {
-      setPreloaderVisible(false);
-      setContentVisible(true);
-    }, 1200);
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
 
     // Optimize page rendering - load scripts after React is fully initialized
     const loadScripts = () => {
@@ -73,22 +88,18 @@ function App() {
 
     // Cleanup
     return () => {
-      clearTimeout(fadeInTimer);
-      clearTimeout(loadTimer);
+      window.removeEventListener('load', handleLoad);
     };
   }, []);
 
   return (
     <Router>
-      {/* Mobile Landing Page - Only visible on mobile */}
-      <MobileHome />
-      
-      {/* Preloader - Fades in first, then fades out */}
+      {/* Preloader - Shows while loading */}
       <div 
-        className={`preloader ${preloaderFadedIn ? 'preloader-fade-in' : ''} ${!preloaderVisible ? 'loaded' : ''}`}
+        className={`preloader ${!preloaderVisible ? 'loaded' : ''}`}
         style={{
-          opacity: preloaderFadedIn ? 1 : 0,
-          transition: 'opacity 0.5s ease-in-out'
+          opacity: preloaderVisible ? 1 : 0,
+          transition: 'opacity 0.3s ease-in-out'
         }}
       >
         <div className="preloader-body">
@@ -98,20 +109,26 @@ function App() {
         </div>
       </div>
 
-      {/* Desktop Version - Hidden on mobile */}
-      <div className={`page ${contentVisible ? 'fadeIn animated' : ''}`} style={{ opacity: contentVisible ? 1 : 0 }}>
-        {/* Header */}
-        <Header />
+      {/* Conditional Rendering: Only render mobile OR desktop, not both */}
+      {isMobile ? (
+        /* Mobile Landing Page */
+        <MobileHome />
+      ) : (
+        /* Desktop Version */
+        <div className={`page ${contentVisible ? 'fadeIn animated' : ''}`} style={{ opacity: contentVisible ? 1 : 0 }}>
+          {/* Header */}
+          <Header />
 
-        {/* Routes */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* Future routes can be added here */}
-        </Routes>
+          {/* Routes */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* Future routes can be added here */}
+          </Routes>
 
-        {/* Footer */}
-        <Footer />
-      </div>
+          {/* Footer */}
+          <Footer />
+        </div>
+      )}
 
       {/* Snackbars */}
       <div className="snackbars" id="form-output-global"></div>

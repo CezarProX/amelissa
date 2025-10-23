@@ -1,12 +1,8 @@
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-
 function HeroSection() {
-  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
-
   return (
-    <div className="hero-section-modern hero-animate-enter" ref={ref}>
+    <div className="hero-section-modern">
       {/* Background Image Container */}
-      <div className="hero-background-image hero-bg-animate"></div>
+      <div className="hero-background-image"></div>
       
       {/* Mobile Hero Image - Visible only on small screens */}
       <div className="hero-mobile-image">
@@ -32,7 +28,7 @@ function HeroSection() {
       <div className="container">
         <div className="row row-40 align-items-start">
           {/* Left Column - Biography */}
-          <div className={`col-sm-6 col-xl-3 hero-card-animate animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
+          <div className="col-sm-6 col-xl-3">
             {/* Biography Card */}
             <div className="modern-card modern-card-featured bio-card">
               <h3 className="bio-card-title">THE STORY BEHIND</h3>
@@ -94,14 +90,14 @@ function HeroSection() {
           </div>
 
           {/* Right Column - Media */}
-          <div className={`col-sm-6 col-xl-3 offset-xl-6 hero-card-animate animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.4s' }}>
+          <div className="col-sm-6 col-xl-3 offset-xl-6">
             {/* Latest Release Headline */}
             <div className="media-section-headline">
               <h3 className="media-headline-text">LATEST RELEASE</h3>
             </div>
 
             {/* Release Card 1 */}
-            <div className={`modern-card modern-card-media hero-media-card-animate animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.6s' }}>
+            <div className="modern-card modern-card-media">
               <a 
                 href="https://youtu.be/r96b5mtkHrE?si=UgD6DD7HNm-XHHFe" 
                 target="_blank" 
@@ -113,6 +109,8 @@ function HeroSection() {
                     src="/images/Cover Piesa 1.jpg" 
                     alt="Not Fair - Amelissa" 
                     className="media-card-image"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="media-card-overlay">
                     <div className="media-info">
@@ -140,7 +138,7 @@ function HeroSection() {
             </div>
 
             {/* Release Card 2 */}
-            <div className={`modern-card modern-card-media hero-media-card-animate animate-on-scroll ${isVisible ? 'animate-visible' : ''}`} style={{ animationDelay: '0.8s' }}>
+            <div className="modern-card modern-card-media">
               <a 
                 href="https://youtu.be/73dvWTHMQ6Y?si=67xv9aW-qaqZ5Rv1" 
                 target="_blank" 
@@ -152,6 +150,8 @@ function HeroSection() {
                     src="/images/Cover 2nd Song 1080x1080.png" 
                     alt="Second Release - Amelissa" 
                     className="media-card-image"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="media-card-overlay">
                     <div className="media-info">

@@ -1,19 +1,4 @@
-import { useEffect, useState } from 'react';
-
 function MobileHero() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const parallaxOffset = scrollY * 0.5;
-
   return (
     <section className="mobile-hero">
       {/* Full-screen Hero Image */}
@@ -24,7 +9,7 @@ function MobileHero() {
           className="mobile-hero-image"
           loading="eager"
           decoding="async"
-          style={{ transform: `translateY(${parallaxOffset}px)` }}
+          fetchPriority="high"
         />
         {/* Gradient Overlay */}
         <div className="mobile-hero-overlay"></div>
