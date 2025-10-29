@@ -27,21 +27,6 @@ function MobileHero() {
           <div className="mobile-hero-tagline">
             <p>SINGER • PERFORMER • STORYTELLER</p>
           </div>
-          
-          {/* CTA Buttons */}
-          <div className="mobile-hero-cta">
-            <a 
-              href="https://youtu.be/r96b5mtkHrE?si=UgD6DD7HNm-XHHFe" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="mobile-cta-primary"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
-              </svg>
-              <span>Latest Release</span>
-            </a>
-          </div>
         </div>
       </div>
     </section>

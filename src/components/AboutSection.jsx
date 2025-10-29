@@ -85,36 +85,82 @@ function AboutSection() {
           </div>
         </div>
 
-        {/* Gallery - 3 Column Grid */}
-        <div className="about-gallery">
-          <div className="gallery-item">
-            <img 
-              src="/images/amelissa/Photo Session (1).jpg" 
-              alt="Amelissa" 
-              loading="lazy"
-              decoding="async"
-              fetchPriority="low"
-            />
+        {/* Premium Gallery Grid */}
+        <div className="about-gallery-premium">
+          {/* Main Featured Image - Large */}
+          <div className="gallery-featured">
+            <div className="gallery-card">
+              <img 
+                src="/images/optimized/Photo Session (1)-desktop.webp" 
+                alt="Amelissa performing"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="1200"
+              />
+              <div className="gallery-overlay">
+                <span className="gallery-number">01</span>
+              </div>
+            </div>
           </div>
-          
-          <div className="gallery-item">
-            <img 
-              src="/images/amelissa/Photo Session (2).jpg" 
-              alt="Amelissa" 
-              loading="lazy"
-              decoding="async"
-              fetchPriority="low"
-            />
-          </div>
-          
-          <div className="gallery-item">
-            <img 
-              src="/images/amelissa/Photo Session (3).jpg" 
-              alt="Amelissa" 
-              loading="lazy"
-              decoding="async"
-              fetchPriority="low"
-            />
+
+          {/* Grid of 4 Images */}
+          <div className="gallery-grid">
+            <div className="gallery-card">
+              <img 
+                src="/images/optimized/Photo Session (2)-desktop.webp" 
+                alt="Amelissa portrait"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="1200"
+              />
+              <div className="gallery-overlay">
+                <span className="gallery-number">02</span>
+              </div>
+            </div>
+
+            <div className="gallery-card">
+              <img 
+                src="/images/optimized/Photo Session (3)-desktop.webp" 
+                alt="Amelissa studio session"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="1200"
+              />
+              <div className="gallery-overlay">
+                <span className="gallery-number">03</span>
+              </div>
+            </div>
+
+            <div className="gallery-card">
+              <img 
+                src="/images/optimized/Photo Session (4)-desktop.webp" 
+                alt="Amelissa creative shoot"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="1200"
+              />
+              <div className="gallery-overlay">
+                <span className="gallery-number">04</span>
+              </div>
+            </div>
+
+            <div className="gallery-card">
+              <img 
+                src="/images/optimized/Photo Session-desktop.webp" 
+                alt="Amelissa backstage"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="1200"
+              />
+              <div className="gallery-overlay">
+                <span className="gallery-number">05</span>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -3,6 +3,15 @@ function MobileMusic() {
   const releases = [
     {
       id: 1,
+      title: "Gel Bana (Come To Me)",
+      artist: "Amelissa x Topsy Crettz",
+      type: "Single",
+      image: "/images/Cover 2nd Song 1080x1080.png",
+      link: "https://youtu.be/73dvWTHMQ6Y?si=67xv9aW-qaqZ5Rv1",
+      badge: null
+    },
+    {
+      id: 2,
       title: "Drink Up",
       artist: "Amelissa",
       type: "Single",
@@ -11,21 +20,12 @@ function MobileMusic() {
       badge: null
     },
     {
-      id: 2,
+      id: 3,
       title: "Dedim Sana",
       artist: "Amelissa",
       type: "Single",
       image: "/images/covers/Cover dedim sana.png",
       link: "https://www.youtube.com/watch?v=kahjpxAWJxE&list=OLAK5uy_kPMy_XJCKXU9GU-4F_RkY58-dPiNZr4vs",
-      badge: null
-    },
-    {
-      id: 3,
-      title: "For the First Time",
-      artist: "Amelissa",
-      type: "Single",
-      image: "/images/covers/Cover for the first time.png",
-      link: "https://www.youtube.com/watch?v=KMCn6aV_pvE&list=OLAK5uy_mbfz5sQ2OLSeHfp0XV50VFtqbNWDRgwMI",
       badge: null
     }
   ];

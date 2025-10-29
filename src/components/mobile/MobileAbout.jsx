@@ -33,6 +33,47 @@ function MobileAbout() {
     <section className="mobile-about">
       <div className="mobile-section-container">
         
+        {/* Latest Release Section */}
+        <div className="mobile-latest-release">
+          <div className="mobile-latest-release-header">
+            <h3 className="mobile-latest-release-title">LATEST RELEASE</h3>
+          </div>
+          <a 
+            href="https://www.youtube.com/watch?v=1LJjUfGEF0M&feature=youtu.be"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mobile-latest-release-card"
+          >
+            <div className="mobile-latest-release-image-wrapper">
+              <img 
+                src="/images/covers/bye bye cover.jpeg" 
+                alt="Bye Bye - Amelissa"
+                className="mobile-latest-release-image"
+                loading="eager"
+                decoding="async"
+              />
+              <div className="mobile-latest-release-overlay">
+                <div className="mobile-latest-release-play">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                    <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div className="mobile-latest-release-info">
+              <div className="mobile-latest-release-song-title">Bye Bye</div>
+              <div className="mobile-latest-release-type">SINGLE</div>
+              <div className="mobile-latest-release-cta">
+                <span>Stream Now</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M1 8h14M8 1l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
+
         {/* Section Header */}
         <div className="mobile-section-header">
           <span className="mobile-section-label">Independent Artist</span>
@@ -78,39 +119,103 @@ function MobileAbout() {
           </a>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="mobile-about-gallery">
-          <div className="mobile-gallery-large">
-            <div className="mobile-gallery-wrapper">
-              <img 
-                src="/images/amelissa/Photo Session (1).jpg" 
-                alt="Amelissa performing"
-                loading="lazy"
-              />
-              <div className="mobile-gallery-overlay"></div>
+        {/* New Premium Gallery */}
+        <div className="mobile-gallery-container">
+          <div className="mobile-gallery-scroll">
+            
+            {/* Card 1 */}
+            <div className="mobile-gallery-card">
+              <div className="mobile-gallery-card-inner">
+                <div className="mobile-gallery-image-wrapper">
+                  <img 
+                    src="/images/optimized/Photo Session (1)-mobile.webp" 
+                    alt="Amelissa performing"
+                    loading="lazy"
+                    width="600"
+                    height="900"
+                  />
+                </div>
+                <div className="mobile-gallery-card-gradient"></div>
+                <div className="mobile-gallery-card-badge">01</div>
+              </div>
             </div>
+
+            {/* Card 2 */}
+            <div className="mobile-gallery-card">
+              <div className="mobile-gallery-card-inner">
+                <div className="mobile-gallery-image-wrapper">
+                  <img 
+                    src="/images/optimized/Photo Session (2)-mobile.webp" 
+                    alt="Amelissa portrait"
+                    loading="lazy"
+                    width="600"
+                    height="900"
+                  />
+                </div>
+                <div className="mobile-gallery-card-gradient"></div>
+                <div className="mobile-gallery-card-badge">02</div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="mobile-gallery-card">
+              <div className="mobile-gallery-card-inner">
+                <div className="mobile-gallery-image-wrapper">
+                  <img 
+                    src="/images/optimized/Photo Session (3)-mobile.webp" 
+                    alt="Amelissa studio session"
+                    loading="lazy"
+                    width="600"
+                    height="900"
+                  />
+                </div>
+                <div className="mobile-gallery-card-gradient"></div>
+                <div className="mobile-gallery-card-badge">03</div>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="mobile-gallery-card">
+              <div className="mobile-gallery-card-inner">
+                <div className="mobile-gallery-image-wrapper">
+                  <img 
+                    src="/images/optimized/Photo Session (4)-mobile.webp" 
+                    alt="Amelissa creative shoot"
+                    loading="lazy"
+                    width="600"
+                    height="900"
+                  />
+                </div>
+                <div className="mobile-gallery-card-gradient"></div>
+                <div className="mobile-gallery-card-badge">04</div>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="mobile-gallery-card">
+              <div className="mobile-gallery-card-inner">
+                <div className="mobile-gallery-image-wrapper">
+                  <img 
+                    src="/images/optimized/Photo Session-mobile.webp" 
+                    alt="Amelissa backstage"
+                    loading="lazy"
+                    width="600"
+                    height="900"
+                  />
+                </div>
+                <div className="mobile-gallery-card-gradient"></div>
+                <div className="mobile-gallery-card-badge">05</div>
+              </div>
+            </div>
+
           </div>
-          <div className="mobile-gallery-small-group">
-            <div className="mobile-gallery-small">
-              <div className="mobile-gallery-wrapper">
-                <img 
-                  src="/images/amelissa/Photo Session (2).jpg" 
-                  alt="Amelissa portrait"
-                  loading="lazy"
-                />
-                <div className="mobile-gallery-overlay"></div>
-              </div>
-            </div>
-            <div className="mobile-gallery-small">
-              <div className="mobile-gallery-wrapper">
-                <img 
-                  src="/images/amelissa/Photo Session (3).jpg" 
-                  alt="Amelissa studio"
-                  loading="lazy"
-                />
-                <div className="mobile-gallery-overlay"></div>
-              </div>
-            </div>
+          
+          {/* Scroll Hint */}
+          <div className="mobile-gallery-hint">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <span>Swipe to explore</span>
           </div>
         </div>
         

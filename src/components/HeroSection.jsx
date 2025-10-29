@@ -99,6 +99,47 @@ function HeroSection() {
             {/* Release Card 1 */}
             <div className="modern-card modern-card-media">
               <a 
+                href="https://www.youtube.com/watch?v=1LJjUfGEF0M&feature=youtu.be" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="media-card-link"
+              >
+                <div className="media-card-image-wrapper">
+                  <img 
+                    src="/images/covers/bye bye cover.jpeg" 
+                    alt="Bye Bye - Amelissa" 
+                    className="media-card-image"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="media-card-overlay">
+                    <div className="media-info">
+                      <div className="media-artist">Amelissa</div>
+                      <div className="media-title">&quot;Bye Bye&quot;</div>
+                    </div>
+                    <div className="media-play-button">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <div className="media-card-info">
+                <h4 className="media-card-title">Bye Bye</h4>
+                <p className="media-card-subtitle">Single</p>
+              </div>
+              <a className="media-card-footer" href="https://www.youtube.com/watch?v=1LJjUfGEF0M&feature=youtu.be" target="_blank" rel="noopener noreferrer">
+                <span>Stream Now</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M1 8h14M8 1l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </div>
+
+            {/* Release Card 2 */}
+            <div className="modern-card modern-card-media">
+              <a 
                 href="https://youtu.be/r96b5mtkHrE?si=UgD6DD7HNm-XHHFe" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -131,47 +172,6 @@ function HeroSection() {
               </div>
               <a className="media-card-footer" href="https://youtu.be/r96b5mtkHrE?si=UgD6DD7HNm-XHHFe" target="_blank" rel="noopener noreferrer">
                 <span>Stream Now</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M1 8h14M8 1l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
-            </div>
-
-            {/* Release Card 2 */}
-            <div className="modern-card modern-card-media">
-              <a 
-                href="https://youtu.be/73dvWTHMQ6Y?si=67xv9aW-qaqZ5Rv1" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="media-card-link"
-              >
-                <div className="media-card-image-wrapper">
-                  <img 
-                    src="/images/Cover 2nd Song 1080x1080.png" 
-                    alt="Second Release - Amelissa" 
-                    className="media-card-image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="media-card-overlay">
-                    <div className="media-info">
-                      <div className="media-artist">Amelissa x Topsy Crettz</div>
-                      <div className="media-title">&quot;Gel Bana (Come To Me)&quot;</div>
-                    </div>
-                    <div className="media-play-button">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <div className="media-card-info">
-                <h4 className="media-card-title">Gel Bana (Come To Me)</h4>
-                <p className="media-card-subtitle">Amelissa x Topsy Crettz</p>
-              </div>
-              <a className="media-card-footer" href="https://youtu.be/73dvWTHMQ6Y?si=67xv9aW-qaqZ5Rv1" target="_blank" rel="noopener noreferrer">
-                <span>Watch Now</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M1 8h14M8 1l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
